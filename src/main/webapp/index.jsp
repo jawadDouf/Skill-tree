@@ -6,8 +6,11 @@
 </head>
 <body>
 <h1><%= "Hello World!" %>
+    <form action="sendReq">
+        <input type="submit">
+    </form>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+
 </body>
 </html>
