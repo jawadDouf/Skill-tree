@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Skill_Tree:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Skill_Tree</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Skill_Tree-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Skill_Tree:war exploded" />
+    </root>
+  </artifact>
+</component>
