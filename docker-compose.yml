@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:9.6
+    ports:
+      - 5000:5433
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: J@1ssword!
+      POSTGRES_DB: skilltree
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  server:
+    image: quay.io/wildfly/wildfly
+    ports:
+        - 8888:8080
+    volumes:
+        - ./target/Skill_Tree-1.0-SNAPSHOT.war:/opt/jboss/wildfly/standalone/deployments/skillTree.war
+volumes:
+  db_data:
