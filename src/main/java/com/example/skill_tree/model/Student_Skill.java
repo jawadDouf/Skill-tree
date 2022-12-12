@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+/*
 @Entity
 @Table(name = "students_skills")
 public class Student_Skill implements Serializable {
@@ -92,3 +93,4 @@ public class Student_Skill implements Serializable {
 
 
 }
+*/

@@ -9,6 +9,6 @@ public class Skill_TechnologieId implements Serializable {
 
     private int skill_id;
 
-    private int technologir_id;
+    private int technologie_id;
 
 }

@@ -2,6 +2,8 @@ package com.example.skill_tree.spring_config;
 
 
 import jakarta.persistence.EntityManagerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -20,8 +22,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class JpaConfiguration {
 
-
-    @Bean
+    @Bean(name = "entityManagerFactoryBean")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
          LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean(); // Creats the EntityManagerFactiry
          em.setDataSource(dataSource());
@@ -32,24 +33,19 @@ public class JpaConfiguration {
 
          //Add new jpa properties
         Properties jpaProperties = new Properties();
-
-        jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-
+        jpaProperties.setProperty("hibernate.hbm2ddl.auto","create");
+        jpaProperties.setProperty("hibernate.show_sql","true");
         em.setJpaProperties(jpaProperties);
-
-
-
          return em;
      }
 
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/");
-        dataSource.setUsername("root");
-        dataSource.setPassword("password");
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/skilltree");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("J@1ssword!");
         return dataSource;
     }
 
@@ -62,8 +58,5 @@ public class JpaConfiguration {
 
         return transactionManager;
     }
-
-
-
 
 }

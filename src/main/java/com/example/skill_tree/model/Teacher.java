@@ -14,7 +14,7 @@ public class Teacher extends Person{
 
 
     @OneToMany(mappedBy = "teacher",fetch = FetchType.EAGER)
-    List<Student> students;
+    private List<Student> students;
 
 
 

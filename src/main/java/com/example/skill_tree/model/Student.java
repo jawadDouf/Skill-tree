@@ -11,14 +11,15 @@ public class Student extends Person{
 
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id",referencedColumnName = "id",nullable =true)
-    Teacher teacher;
+    @JoinColumn(name = "teacher_id",referencedColumnName = "id")
+    private Teacher teacher;
 
+    /*
     @OneToMany(mappedBy = "student")
-    List<Student_Skill> skills;
+    private List<Student_Skill> skills;
 
 
-
+*/
     public Teacher getTeacher() {
         return teacher;
     }
@@ -26,7 +27,7 @@ public class Student extends Person{
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-
+/*
     public List<Student_Skill> getSkills() {
         return skills;
     }
@@ -34,4 +35,6 @@ public class Student extends Person{
     public void setSkills(List<Student_Skill> skills) {
         this.skills = skills;
     }
+
+ */
 }
