@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -20,9 +21,10 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "com.example.skill_tree.repositories")
 public class JpaConfiguration {
 
-    @Bean(name = "entityManagerFactoryBean")
+    @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
          LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean(); // Creats the EntityManagerFactiry
          em.setDataSource(dataSource());

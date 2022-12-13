@@ -16,13 +16,13 @@ public class Skill implements Serializable {
     @Column(name = "name",columnDefinition="varchar(255) default 'skill'")
     private String name;
 
-    /*
+
     @OneToMany(mappedBy = "skill")
     private List<Student_Skill> students;
 
     @OneToMany(mappedBy = "skill")
     private List<Skill_Technologie> technologies;
-*/
+
     public int getId() {
         return id;
     }
@@ -38,7 +38,7 @@ public class Skill implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-/*
+
     public List<Student_Skill> getStudents() {
         return students;
     }
@@ -55,5 +55,5 @@ public class Skill implements Serializable {
         this.technologies = technologies;
     }
 
- */
+
 }

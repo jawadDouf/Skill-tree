@@ -13,7 +13,7 @@ public class main {
     public static void main(String[] args) {
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(JpaConfiguration.class);
-        EntityManagerFactory entityManagerFactory = (EntityManagerFactory) applicationContext.getBean("entityManagerFactoryBean");
+        EntityManagerFactory entityManagerFactory = (EntityManagerFactory) applicationContext.getBean("entityManagerFactory");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         Teacher teacher = new Teacher();

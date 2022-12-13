@@ -7,7 +7,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 
 import java.io.Serializable;
-/*
+
 
 
 @Entity
@@ -48,4 +48,3 @@ public class Skill_Technologie implements Serializable {
         this.id = id;
     }
 }
-*/

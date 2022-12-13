@@ -15,12 +15,12 @@ public class Technologie implements Serializable {
     @Column(name = "name",nullable = false,unique = true)
     private String name;
 
-    /*
+
     @OneToMany(mappedBy = "technologie")
     private List<Skill_Technologie> skills;
 
 
-*/
+
     public int getId() {
         return id;
     }
@@ -37,7 +37,7 @@ public class Technologie implements Serializable {
         this.name = name;
     }
 
-    /*
+
     public List<Skill_Technologie> getSkills() {
         return skills;
     }
@@ -46,5 +46,5 @@ public class Technologie implements Serializable {
         this.skills = skills;
     }
 
-     */
+
 }

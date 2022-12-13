@@ -11,7 +11,7 @@ public class testConfig {
     public ModelAndView redirectToIndexPag(){
         System.out.println("I'm working");
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("index.jsp");
+        mv.setViewName("index");
         return mv;
     }
 }
