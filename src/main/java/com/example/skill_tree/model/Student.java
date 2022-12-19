@@ -2,6 +2,8 @@ package com.example.skill_tree.model;
 
 
 import jakarta.persistence.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,11 +13,12 @@ public class Student extends Person{
 
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id",referencedColumnName = "id",nullable =true)
-    Teacher teacher;
+    @JoinColumn(name = "teacher_id",referencedColumnName = "id")
+    private Teacher teacher;
+
 
     @OneToMany(mappedBy = "student")
-    List<Student_Skill> skills;
+    private List<Student_Skill> skills;
 
 
 
@@ -34,4 +37,6 @@ public class Student extends Person{
     public void setSkills(List<Student_Skill> skills) {
         this.skills = skills;
     }
+
+
 }

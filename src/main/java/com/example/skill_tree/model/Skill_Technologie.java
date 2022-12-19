@@ -8,6 +8,8 @@ import jakarta.persistence.MapsId;
 
 import java.io.Serializable;
 
+
+
 @Entity
 public class Skill_Technologie implements Serializable {
 
@@ -36,5 +38,13 @@ public class Skill_Technologie implements Serializable {
 
     public void setTechnologie(Technologie technologie) {
         this.technologie = technologie;
+    }
+
+    public Skill_TechnologieId getId() {
+        return id;
+    }
+
+    public void setId(Skill_TechnologieId id) {
+        this.id = id;
     }
 }

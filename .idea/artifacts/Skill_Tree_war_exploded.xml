@@ -50,6 +50,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:6.0.0" />
           <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.0.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.2" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.5.1" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

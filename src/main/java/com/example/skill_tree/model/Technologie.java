@@ -15,8 +15,9 @@ public class Technologie implements Serializable {
     @Column(name = "name",nullable = false,unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "skill")
-    List<Skill_Technologie> skill;
+
+    @OneToMany(mappedBy = "technologie")
+    private List<Skill_Technologie> skills;
 
 
 
@@ -35,4 +36,15 @@ public class Technologie implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    public List<Skill_Technologie> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill_Technologie> skills) {
+        this.skills = skills;
+    }
+
+
 }

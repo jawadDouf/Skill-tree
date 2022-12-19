@@ -6,7 +6,11 @@
 </head>
 <body>
 <h1><%= "Hello World!" %>
-    <form action="sendReq">
+    <form action="addStudent">
+        <input name="f_name" />
+        <input name="l_name" />
+        <input name="email" />
+        <input name="password" />
         <input type="submit">
     </form>
 </h1>
