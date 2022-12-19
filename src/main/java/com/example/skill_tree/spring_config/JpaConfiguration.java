@@ -28,14 +28,14 @@ public class JpaConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
          LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean(); // Creats the EntityManagerFactiry
          em.setDataSource(dataSource());
-         em.setPackagesToScan(new String[]{"com.example.skill_tree.model"});
+         em.setPackagesToScan("com.example.skill_tree.model");
 
          JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
          em.setJpaVendorAdapter(vendorAdapter);
 
          //Add new jpa properties
         Properties jpaProperties = new Properties();
-        jpaProperties.setProperty("hibernate.hbm2ddl.auto","create");
+        jpaProperties.setProperty("hibernate.hbm2ddl.auto","update");
         jpaProperties.setProperty("hibernate.show_sql","true");
         em.setJpaProperties(jpaProperties);
          return em;

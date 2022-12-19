@@ -3,6 +3,7 @@ package com.example.skill_tree.model;
 
 import jakarta.persistence.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
