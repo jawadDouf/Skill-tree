@@ -1,0 +1,72 @@
+<!-- Container -->
+    <!-- Login component --> 
+    <form class="flex shadow-md">
+
+      <!-- Login form -->
+     <div *ngIf="!secondPart" class="flex flex-wrap content-center justify-center rounded-l-md bg-white" style="width: 24rem; height: 32rem;">
+        <div class="w-72">
+          <!-- Heading -->
+          <h1 class="text-xl font-semibold">Create a new animal</h1>
+          <small class="text-gray-400">Please enter the required details</small>
+          <!-- Form -->
+          
+            <div class="mb-3">
+              <label class="mb-2 block text-xs font-semibold">Name</label>
+              <input type="text" placeholder="Enter your animal name"  class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="name" #Name2="ngModel" [(ngModel)]="name" required/>
+              <small *ngIf="Name2.invalid && Name2.touched" class="text-red-600">The Name field is required</small>
+            </div>
+  
+            <div class="mb-3">
+              <label class="mb-2 block text-xs font-semibold">Age</label>
+              <input type="number" placeholder="Enter your age" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="age" #age2="ngModel" [(ngModel)]="animalAge" required/>
+              <small *ngIf="age2.invalid && age2.touched" class="text-red-600">The Age field is required</small>
+            </div>
+            <div class="mb-3">
+                <label class="mb-2 block text-xs font-semibold">Type</label>
+                <select type="text" placeholder="Enter the type of your animal" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="type" #type2="ngModel"  (change)="selectedValue($event)" ngModel  required>
+                    <option>DOG</option>
+                    <option>CAT</option>
+                </select>
+                <small *ngIf="type2.invalid && type2.touched" class="text-red-600">The type field is required</small>
+            </div>
+            <div class="mb-3">
+                <label class="mb-2 block text-xs font-semibold">Description</label>
+                <textarea type="text" placeholder="enter the description of the anu"  class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="description" #description="ngModel" [(ngModel)]="animalDescription" required></textarea>
+                <small *ngIf="description.invalid && description.touched" class="text-red-600">The  description field is required</small>
+            </div> 
+
+            <div class="mb-3">
+              <input type="submit" class="mb-1.5 block w-full  text-center text-white bg-purple-700 hover:bg-purple-900 px-2 py-1.5 rounded-md"  (click)="createAnimal()" value="Create Animal">
+            </div>
+    
+            </div>
+        </div>
+        
+        <div *ngIf="secondPart" class="flex flex-wrap content-center justify-center rounded-l-md bg-white" style="width: 24rem; height: 32rem;">
+            <div  class="w-72">
+                
+                <div class="mb-3">
+                    <label class="mb-2 block text-xs font-semibold">Image</label>
+                    <input type="file" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="image3" (change)="onFileChanged($event)" ngModel #image3="ngModel" required/>
+                    <!-- <small *ngIf="image3.invalid && image3.touched" class="text-red-600">This field is required</small> -->
+                </div>
+            
+    
+            <div class="mb-3">
+                <label class="mb-2 block text-xs font-semibold">Image</label>
+                <input type="file" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="image1" #image1="ngModel" ngModel (change)="onFileChanged($event)" />
+                <!-- <small *ngIf="image1.invalid && image1.touched" class="text-red-600">This field is required</small> -->
+            </div>
+    
+            <div class="mb-3">
+              <label class="mb-2 block text-xs font-semibold">Image</label>
+              <input type="file" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="image2" #image2="ngModel" ngModel  (change)="onFileChanged($event)" />
+              <!-- <small *ngIf="image2.invalid && image2.touched" class="text-red-600">This field is required</small> -->
+           </div>
+            <div class="mb-3">
+                  <input type="submit" class="mb-1.5 block w-full  text-center text-white bg-purple-700 hover:bg-purple-900 px-2 py-1.5 rounded-md"  (click)="addImages()" value="Add images">
+            </div>
+        </div>
+      </div>
+      
+    </form>    

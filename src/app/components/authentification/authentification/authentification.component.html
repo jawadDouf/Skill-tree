@@ -1,0 +1,2 @@
+<app-register *ngIf="!switcher" (sendEvent)="changeSwitcher()"></app-register>
+<app-login *ngIf="switcher" (sendEvent)="changeSwitcher()"></app-login>

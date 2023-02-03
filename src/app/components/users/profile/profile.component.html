@@ -1,0 +1,76 @@
+      <div class="bg-slate-800 h-auto flex flex-col">
+    <div class="container mx-auto px-6 py-8">
+      <div class="flex items-center justify-center h-24">
+        <img class="w-32 h-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="profile picture">
+      </div>
+      <div class="text-center mt-5">
+        <h1 class="text-4xl font-medium text-white">{{user.last_name}} {{user.first_name}}</h1>
+        <p class="text-lg text-gray-100">Love animals</p>
+      </div>
+      <div class="my-6">
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+          <h2 class="text-lg font-bold text-teal-800 mb-2">About Me</h2>
+          <p class="text-gray-700">I am a software developer with over 5 years of experience in building and maintaining web applications. My expertise lies in JavaScript, React, Node.js, and Express. I have a passion for creating user-friendly and visually appealing applications. I am always eager to learn new technologies and improve my skills.</p>
+        </div>
+      </div>
+      <div class="my-6">
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+          <h2 class="text-lg font-bold text-teal-800 mb-2">My informations</h2>
+          <div class="flex items-center flex-1 font-bold leading-tight text-gray-700">User's email : 
+            <span class="text-ls pl-3 font-medium text-gray-700">{{ user.email }}</span>
+          </div>
+          <div class="flex items-center flex-1 font-bold leading-tight text-gray-700">User's phone number : 
+            <span class="text-ls pl-3 font-medium text-gray-700">{{ user.phone_number }}</span>
+          </div>
+          <div class="flex items-center flex-1 font-bold leading-tight text-gray-700">User's adresse : 
+            <span class="text-ls pl-3 font-medium text-gray-700">{{ user.adresse }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="my-6 cursor-pointer" >
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+          <div class="flex flex-row">
+            <h2 class="text-lg font-bold text-teal-800 mb-2">My animals</h2>
+          <span *ngIf="modifyIcons" class="ml-2 mt-1 cursor-pointer" (click)="switchForm2()" ><i class="fa-solid fa-plus"></i></span>
+        </div>
+          
+          <div class="flex flex-row flex-wrap ">
+            <div class="w-[27%] mb-4 mr-5"  *ngFor="let animal of animals;index as i">
+              <div  class="bg-slate-800  px-4 py-5 flex flex-col justify-center rounded-lg" >
+                
+                <div  class="flex flex-row">
+                  <div>
+                    <h3 class="text-lg font-bold text-white mb-1">{{animal.name}}</h3>
+                    <p class="text-white mb-1">{{ animal.description }}</p> 
+                  </div>
+                  <div class="ml-auto">
+                   <div *ngIf="modifyIcons" class="flex flex-col">
+                     <button class="py-2 px-6 bg-gray-100 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" (click)="switchForm(animal.id)">Pub.</button> 
+                    <button class="py-2 px-6 mt-1 bg-gray-100 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" (click)="switchForm3(animal.id)">Edit.</button> 
+                    <button class="py-2 px-6 mt-1 bg-gray-100 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" (click)="deleteAnimal(animal.id,$event)">Delete.</button> 
+                  </div>
+                  </div>
+                </div>
+                    <div class="flex items-center flex-1 font-bold leading-tight text-white">Animals's age : 
+                        <span class="text-ls pl-3 font-medium my-1 text-white">{{ animal.age }}</span>
+                    </div>
+                    <div class="flex items-center flex-1 font-bold leading-tight text-white">Animals's type : 
+                        <span class="text-ls pl-3 font-medium my-1 text-white">{{ animal.type }}</span>
+                    </div>
+                <img class="w-fit h-[350px] object-cover mt-2" src='{{ "../../assets/" + animal.images[0].name }}' alt="profile picture">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  
+
+  <div (click)="switchForm(0)" class="absolute top-0 left-0 w-full h-[244vh] bg-gray-900 opacity-75 cursor-pointer" *ngIf="formSwitcher"></div>
+  <app-create-pub [animalId]="anId" class="absolute top-[150vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2" *ngIf="formSwitcher"></app-create-pub>
+
+  <div (click)="switchForm2()" class="absolute top-0 left-0 w-full h-[244vh] bg-gray-900 opacity-75 cursor-pointer" *ngIf="formSwitcher2"></div>
+  <app-create-animal class="absolute top-[150vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2"  *ngIf="formSwitcher2"></app-create-animal>
+
+  <div (click)="switchForm3(0)" class="absolute top-0 left-0 w-full h-[244vh] bg-gray-900 opacity-75 cursor-pointer" *ngIf="formSwitcher3"></div>
+  <app-update-animal class="absolute top-[150vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2" *ngIf="formSwitcher3" [animalId]="anId"></app-update-animal>

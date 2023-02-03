@@ -1,0 +1,50 @@
+<!-- Container -->
+
+      <!-- Your content here -->
+    <!-- Login component -->
+    <div class="flex shadow-md">
+      <!-- Login form -->    
+        <div class="w-72">
+        <form class="mt-4">
+            <div class="flex flex-wrap content-center justify-center rounded-l-md bg-white" style="width: 24rem; height: 32rem;">
+                <div class="w-72">
+                <h1 class="text-xl font-bold">Create Pub for this animal</h1>
+                <small class="text-gray-400">Please enter the required details</small>    
+                </div>
+                
+                <div class="w-72">
+                    <div class="mb-3">
+                        <label class="mb-2 block text-xs font-semibold">Start date</label>
+                        <input type="Date" placeholder="Enter the start date" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="start_date" #date2="ngModel" [(ngModel)]="startDate" required date requred/>
+                        <small *ngIf="date2.invalid && date2.touched" class="text-red-600">The start date field is required</small>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label class="mb-2 block text-xs font-semibold">End date</label>
+                        <input type="date" placeholder="Enter the end date" [(ngModel)]="endDate" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="endDate" #endDate2="ngModel" ngModel required/>
+                        <small *ngIf="endDate2.invalid && endDate2.touched" class="text-red-600">The end date field is required</small>
+                    </div>       
+                    <div class="mb-3">
+                        <label class="mb-2 block text-xs font-semibold">Publication description</label>
+                        <textarea type="text" placeholder="enter the description" [(ngModel)]="pubDescription" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="description" #description="ngModel" ngModel  required></textarea>
+                        <small *ngIf="description.invalid && description.touched" class="text-red-600">The  description field is required</small>
+                    </div>              
+                    <div class="mb-3">
+                          <input type="submit" (click)="createPublication()" class="mb-1.5 block w-full  text-center text-white bg-purple-700 hover:bg-purple-900 px-2 py-1.5 rounded-md"  value="Create a publication">
+                    </div>
+                
+                    </div>
+        
+                </div>
+               
+          </form>
+          <!-- Footer -->
+          
+        </div>
+      
+      <!-- Login banner -->
+      
+    </div>  
+
+
+
